@@ -167,6 +167,12 @@ origin은 단지 이름으로써 내 마음대로 바꿀 수 있다.
 
 ### 원격 저장소에 push하기
 
+```
+$ git push origin master # remote 이름이 origin일 경우에 master 브랜치를 PUSH하겠다.
+```
+
+
+
 ## Summary
 
 | 명령어                         | 설명                                               |
