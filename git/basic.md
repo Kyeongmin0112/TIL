@@ -167,16 +167,40 @@ origin은 단지 이름으로써 내 마음대로 바꿀 수 있다.
 
 ### 원격 저장소에 push하기
 
+자료를 remote에 저장하는 명령어
+
 ```
 $ git push origin master # remote 이름이 origin일 경우에 master 브랜치를 PUSH하겠다.
 
 $ git push origin branch # remote 이름이 origin일 경우에 master가 아닌 브랜치의 종류를 PUSH하겠다.
 ```
 
+push의 루틴은 add -> commit -> push이다. 이 순서대로 해야 깃허브에 수정된 정보가 저장된다.
+
 ### 원격 저장소에 pull하기
+
+remote에 저장된 자료를 받는 명령어
 
 ```
 $ git pull origin master # remote 이름이 origin일 경우에 master 브랜치를 PULL하겠다.
+```
+
+
+
+### 추가
+
+```
+$ git commit --amend # git bash 내에서 commit을 변경할 수 있다.
+```
+
+```
+vim # 타이포라 창을 git으로 확인할 수 있으며 변경사항이 있을 경우 수정이 가능하다.
+I # 수정가능
+ESC # 수정가능 끝내기(수정불가)
+:w # 저장
+:q # 밖으로 나오기
+:wq # 저장 후 종료
+
 ```
 
 
