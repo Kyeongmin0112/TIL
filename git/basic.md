@@ -175,7 +175,7 @@ $ git push origin master # remote 이름이 origin일 경우에 master 브랜치
 $ git push origin branch # remote 이름이 origin일 경우에 master가 아닌 브랜치의 종류를 PUSH하겠다.
 ```
 
-<<<<<<< HEAD
+
 push의 루틴은 add -> commit -> push이다. 이 순서대로 해야 깃허브에 수정된 정보가 저장된다.
 
 ### 원격 저장소에 pull하기
@@ -206,22 +206,15 @@ ESC # 수정가능 끝내기(수정불가)
 ### 원격 저장소에 pull하기
 
 ```
-$ git pull origin master # remote 이름이 origin일 경우에 master 브랜치를 PULL하겠다.
->>>>>>> 7f7ac42e033d071a59f160127c89c55dc8238970
-```
-
 
 
 ## Summary
 
 | 명령어                         | 설명                                               |
-| ------------------------------ | -------------------------------------------------- |
+| :----------------------------- | -------------------------------------------------- |
 | git init                       | 빈 디렉토리(폴더)를 git 저장소(repo)로 초기화한다. |
 | git add <filename>             | <filename>을 Stage에 올린다.                       |
-| git commit -m "commit message" | commit message를 저장한다.                         |
-| got log                        | commit 내역을 확인할 수 있다.                      |
-
-
-
-
-```
+| git commit -m 'commit message' | commit message를 저장한다.                         |
+| git log                        | commit 내역을 확인할 수 있다.                      |
+| git remote add origin <URL>    | 원격 저장소에 저장한다.                            |
+|                                |                                                    |
