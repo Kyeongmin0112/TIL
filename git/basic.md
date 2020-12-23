@@ -169,6 +169,14 @@ origin은 단지 이름으로써 내 마음대로 바꿀 수 있다.
 
 ```
 $ git push origin master # remote 이름이 origin일 경우에 master 브랜치를 PUSH하겠다.
+
+$ git push origin branch # remote 이름이 origin일 경우에 master가 아닌 브랜치의 종류를 PUSH하겠다.
+```
+
+### 원격 저장소에 pull하기
+
+```
+$ git pull origin master # remote 이름이 origin일 경우에 master 브랜치를 PULL하겠다.
 ```
 
 
