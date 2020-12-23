@@ -148,6 +148,25 @@ $ git log
 
 작성자, 시간, commit된 내용을 순차적으로 볼 수 있다.
 
+### 원격 저장소 등록하기
+
+리모트 : 네트워크나 인터넷 어딘가에 있는 저장소
+
+```
+$ git remote add origin <URL> # 원격 저장소 등록하기
+
+$ git remote -v #원격 저장소 확인하기
+
+$ git remote rm origin #origin을 삭제
+
+$ git remote -v # 원격 저장소 확인하기
+
+```
+
+origin은 단지 이름으로써 내 마음대로 바꿀 수 있다.
+
+### 원격 저장소에 push하기
+
 ## Summary
 
 | 명령어                         | 설명                                               |
