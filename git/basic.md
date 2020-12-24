@@ -39,23 +39,23 @@ $ git config user.email
 
 ### 파일 생성
 
-내가 원하는 폴더 내로 들어가서 파일을 생성하기 위해서는 몇가지 코드가 필요하다.
+내가 원하는 폴더 내로 들어가서 파일을 생성하기 위해서는 몇가지 명령어가 필요하다.
 
-- mkdir <폴더이름>
+- mkdir <폴더name>
 
-  make directory <폴더이름>으로 현재 내가 위치한 곳에 폴더를 생성한다.
+  make directory <폴더name>으로 현재 내가 위치한 곳(~에서 확인 가능)에 폴더를 생성한다.
 
-- cd <폴더이름>
+- cd <폴더name>
 
-  change directory <폴더이름>으로 폴더이름 내로 들어간다. 
+  change directory <폴더name>으로 폴더이름 내로 들어간다. 
 
-- touch <문서이름.유형> 
+- touch <문서name.유형> 
 
-  현재 위치에 파일을 생성한다.
+  현재 위치에 문서 name 파일을 생성한다.(md를 통해 타이포라 가능)
 
-- rm -r <문서이름>
+- rm -r <문서name>
 
-  문서파일을 삭제하는 코드로 -rf를 사용하면 어떤 조건에서도 삭제가 가능하다.
+  문서name을 삭제하는 코드로 -rf를 사용하면 어떤 조건에서도 삭제가 가능하다.
 
 - cd .. / cd ~
 
@@ -65,7 +65,7 @@ $ git config user.email
 
 ### 리스트 확인
 
-상태 점검은 폴더 내에 있는 파일을 보여주고 ls or ls -a를 통해 진행한다.![image-20201222172213461](basic.assets/image-20201222172213461.png)
+리스트 확인은 폴더 내에 있는 파일을 보여주고 ls or ls -a를 통해 진행한다.![image-20201222172213461](basic.assets/image-20201222172213461.png)
 
 ```
 $ ls
@@ -78,7 +78,7 @@ $ ls -a는 폴더 내에 숨겨진 파일까지 확인할 수 있다.
 
 ### 상태 점검
 
-상태 점검은 git status를 통해 알 수 있으며 자주 사용한다. 
+상태 점검은 git status 명령어를 통해 알 수 있으며 자주 사용하는 것이 좋다. 
 
 ![image-20201222174157152](basic.assets/image-20201222174157152.png)
 
@@ -105,18 +105,21 @@ $ git status
 (master)가 써있다면 성공.
 
 - rm -rf .git을 할 경우, (master)가 지워진다. but 최후의 수단으로 지우는 방법.
+- 홈 폴더에서는 절대로 git init 명령어를 하면 안된다.
 
 ### add하기
 
-add는 모르는 파일 / 수정된 파일을 Stage에 올리는 것이다.
+add는 모르는 파일 / 수정된 파일을 Stage에 올리는 명령어이다.
 
 ```
 $ git add <파일명>
+
+$ git add .
 ```
 
 이 상태가 되어야 commit이 가능하다. 즉 add -> commit 순서로 진행되어야 한다.
 
-- add를 했지만 Stage에서 내리거나 수정하고 싶다면 restore --stage를 사용한다.
+- add를 했지만 Stage에서 내리거나 수정하고 싶다면 restore --staged 명령어를 사용한다.
 
   ```
   $ restore --staged <파일명>
@@ -126,7 +129,7 @@ $ git add <파일명>
 
 ### Commit하기
 
-commit은 설명이나 변경사항을 저장하는 것이다.
+commit은 설명이나 변경사항을 저장하는 명령어이다.
 
 ![image-20201222180147849](basic.assets/image-20201222180147849.png)
 
@@ -135,6 +138,8 @@ $ git commit -m "할 말"
 ```
 
 - git commit 후에 :q!를 하면 저장하지 않고 끌 수 있다.
+
+  
 
 ### log 보기
 
@@ -148,16 +153,18 @@ $ git log
 
 작성자, 시간, commit된 내용을 순차적으로 볼 수 있다.
 
+
+
 ### 원격 저장소 등록하기
 
 리모트 : 네트워크나 인터넷 어딘가에 있는 저장소
 
 ```
-$ git remote add origin <URL> # 원격 저장소 등록하기
+$ git remote add origin <URL> # origin이라는 이름으로 원격 저장소에 등록하기
 
 $ git remote -v #원격 저장소 확인하기
 
-$ git remote rm origin #origin을 삭제
+$ git remote rm origin # origin을 삭제
 
 $ git remote -v # 원격 저장소 확인하기
 
@@ -165,28 +172,35 @@ $ git remote -v # 원격 저장소 확인하기
 
 origin은 단지 이름으로써 내 마음대로 바꿀 수 있다.
 
+remote 명령어는 내 컴퓨터에 저장된 파일과 리모트와 단지 연결만 해준 것이다. 리모트에 저장하려면 push 명령어가 필요하다.
+
+
+
 ### 원격 저장소에 push하기
 
-자료를 remote에 저장하는 명령어
+자료를 remote에 저장하는 명령어이다.
 
 ```
 $ git push origin master # remote 이름이 origin일 경우에 master 브랜치를 PUSH하겠다.
 
-$ git push origin branch # remote 이름이 origin일 경우에 master가 아닌 브랜치의 종류를 PUSH하겠다.
+$ git push origin <branch name> # remote 이름이 origin일 경우에 master가 아닌 브랜치의 종류를 PUSH하겠다.
 ```
-
 
 push의 루틴은 add -> commit -> push이다. 이 순서대로 해야 깃허브에 수정된 정보가 저장된다.
 
+
+
 ### 원격 저장소에 pull하기
 
-remote에 저장된 자료를 받는 명령어
+remote에 저장된 자료를 받는 명령어이다.
 
 ```
 $ git pull origin master # remote 이름이 origin일 경우에 master 브랜치를 PULL하겠다.
 ```
 
+- 브랜치는 다른 사람과 한 코드를 협업할 때 서로간의 필요한 것이다. 즉, 다른 사람이 수정하고 있는 타 브랜치는 내가 굳이 pull 받을 필요가 없다.
 
+  
 
 ### 추가
 
@@ -201,10 +215,6 @@ ESC # 수정가능 끝내기(수정불가)
 :w # 저장
 :q # 밖으로 나오기
 :wq # 저장 후 종료
-
-=======
-### 원격 저장소에 pull하기
-
 ```
 
 
@@ -216,5 +226,6 @@ ESC # 수정가능 끝내기(수정불가)
 | git add <filename>             | <filename>을 Stage에 올린다.                       |
 | git commit -m 'commit message' | commit message를 저장한다.                         |
 | git log                        | commit 내역을 확인할 수 있다.                      |
-| git remote add origin <URL>    | 원격 저장소에 저장한다.                            |
-|                                |                                                    |
+| git remote add origin <URL>    | 원격 저장소에 등록한다.                            |
+| git push <name> <branch>       | 원격 저장소에 저장한다.                            |
+| git pull <name> master         | 원격 저장소에 있는 정보를 받아온다.                |
