@@ -20,6 +20,8 @@ branch를 생성 후에 제대로 생성이 되었는지 혹은 head가 어디 �
 $ git branch  # 밑에 하위목록이 생성되며 브랜치 목록을 확인 가능
 ```
 
+만약 브랜치가 많다면 목록 중에 초록색 단어가 head가 있는 곳이다.
+
 
 
 ### 브랜치 옮기기(HEAD 움직이기)
@@ -27,22 +29,22 @@ $ git branch  # 밑에 하위목록이 생성되며 브랜치 목록을 확인 �
 head를 branch로 이동하기 위해 필요한 명령어.
 
 ```
-$ git switch <name>  # name으로 이동
-$ git checkout <name> # name으로 이동(위와 동일)
+$ git switch <branch_name>  # branch_name으로 이동
+$ git checkout <branch_name> # branch_name으로 이동(위와 동일)
 ```
 
 보통 branch를 만들고 바로 이동하기 때문에 아래와 같이 사용하는 경우가 많다.
 
 ```
-$ git switch -c <name> # name을 생성하고 이동
-$ git checkout -d <name> # name을 생성하고 이동
+$ git switch -c <branch_name> # branch_name을 생성하고 이동
+$ git checkout -d <branch_name> # branch_name을 생성하고 이동
 ```
 
 
 
 ### 브랜치 합치기(git merge)
 
-branch name에 있는 저장사항들을 master에 합치기 위한 명령어이다. master가 제일 상위 개념이고 나머지 branch들은 하위 개념이기 때문에 master가 다른 branch들을 흡수해야 한다. 또한, merge를 할 경우엔 한 갈래로 가기 때문에 자동적으로 commit이 된다.
+branch name에 있는 저장사항들을 <u>master</u>에 합치기 위한 명령어이다. master가 제일 상위 개념이고 나머지 branch들은 하위 개념이기 때문에 master가 다른 branch들을 흡수해야 한다. 또한, merge를 할 경우엔 한 갈래로 가기 때문에 자동적으로 commit이 된다.
 
 ```
 $ git switch master  # branch가 아닌 master로 이동
@@ -61,10 +63,10 @@ $ git log --pretty=format:"%h %s" --graph
 
 ### 브랜치 삭제하기(git branch -d <name>)
 
-branch를 master와 merge 후에는 branch를 지워야 한다.
+branch를 <u>master</u>와 merge 후에는 branch를 지워야 한다.
 
 ```
-$ git branch -d <name> # 이후 <name>을 지운다.
+$ git branch -d <branch_name> # 이후 <branch_name>을 지운다.
 ```
 
 
@@ -92,3 +94,9 @@ $ touch .gitignore
 위의 명령어를 이용하면 정보를 untrack 할 수 있다.
 
 https://gitignore.io 사이트에 들어가면 사용하는 언어대로 untrack할 수 있다.
+
+``` 
+$ git rm -r --cached <foldername>  # 폴더를 untracked 하는 명령어
+$ git rm --cached <filename>       # 파일을 untracked 하는 명령어
+```
+
